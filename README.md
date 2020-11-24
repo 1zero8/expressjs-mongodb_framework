@@ -27,4 +27,10 @@ Let's fork and clone this project to your local machine!
 
     $ npm install
 
+    $ touch .env
+
+Configure .env file to your liking. Example:
+
+`DATABASE_URL="mongodb://localhost:27017"`
+
     $ npm run dev
