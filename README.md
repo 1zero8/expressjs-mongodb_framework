@@ -1,6 +1,6 @@
 # Create Simple Backend CRUD Application (ReSTAPI) With NodeJS, ExpressJS, And MongoDB
 
-This project I used swagger for documentation and testing ReSTAPI. You don't need post for test your ReSTAPI, I have created example value (include on [swagger_api.json](https://github.com/sanengineer/expressjs-ejs-mongodb/blob/master/package.json))
+This project I used swagger for documentation and testing ReSTAPI. You don't need post for test your ReSTAPI, I have created example value (include on [swagger_api.json](https://github.com/sanengineer/expressjs-ejs-mongodb/blob/master/package.json)).
 
 ## 📦️ Prequisite:
 
