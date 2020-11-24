@@ -1,0 +1,169 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "NodeJS, ExpressJS and MongoDB restAPI documentations ",
+    "version": "1.0.0",
+    "title": "NodeJs, ExpressJS MongoDB restAPI documentations"
+  },
+  "host": "127.0.0.1:5500",
+  "basePath": "/subscribers",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": ["Subscriber"],
+        "summary": "Add One Subscriber",
+        "description": "create new subsciber ",
+        "operationId": "createsubscriber",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New subsciber already add on",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SubscriberModel"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success create new subsciber."
+          }
+        }
+      },
+      "get": {
+        "tags": ["Subscibers"],
+        "summary": "Retrive All Subscibers ",
+        "description": "get all subscibers",
+        "operationId": "getAllSubscibers",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Success retrive subscribers"
+          },
+          "400": {
+            "description": "Found error while retrive all subscriber."
+          }
+        }
+      }
+    },
+    "/{user_id}": {
+      "get": {
+        "tags": ["Subsciber"],
+        "summary": "Retrive One Subsciber By ID",
+        "description": "get one subcsiber",
+        "operationId": "getOneSubsciber",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "description": "ID of subscriber to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success retrive one subsriber"
+          },
+          "400": {
+            "description": "Found error while get one subscriber"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Subsciber"],
+        "summary": "Patch One Subsciber By ID",
+        "description": "patch one subcsiber",
+        "operationId": "patchOneSubsciber",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "description": "ID of subsriber to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New subsciber already patch on",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PatchSubscriberModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success update subcsiber"
+          },
+          "400": {
+            "description": "Found error while update subsciber"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Subsciber"],
+        "summary": "Delete One Subsciber By ID",
+        "description": "delete one subcsiber",
+        "operationId": "deleteOneSubsciber",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "description": "ID of subscriber to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success delete one subsciber"
+          },
+          "400": {
+            "description": "Found error while delete"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SubscriberModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "San Engineer"
+        },
+        "subscribedChannel": {
+          "type": "string",
+          "example": "https://youtube.com/sanengineer"
+        }
+      }
+    },
+    "PatchSubscriberModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "San Developer"
+        },
+        "subscribedChannel": {
+          "type": "string",
+          "example": "https://instagram.com/sanengineer"
+        }
+      }
+    }
+  }
+}
